@@ -12,6 +12,19 @@ export default clerkMiddleware((auth, req) => {
     auth().protect();
   }
 
+  // TEMPORARY redirect to orgs page if trying to go to home
+  if(userId && (req.nextUrl.pathname === '/')){
+
+    let path = '/select-org';
+    
+    if (orgId) {
+      path = `/organization/${orgId}`;
+    }
+
+    const orgSelection = new URL(path, req.url);
+    return NextResponse.redirect(orgSelection);
+  }
+
   // If signed in, if user tries to access signIn/Up page, redirect to organization selection page
   if (userId && (req.nextUrl.pathname === '/sign-in' || req.nextUrl.pathname === '/sign-up')) {
 
