@@ -1,53 +1,42 @@
-import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
+import { authMiddleware } from '@clerk/nextjs/server';
 import { NextResponse } from 'next/server';
 
-const isPublicRoute = createRouteMatcher(['/sign-in(.*)', '/sign-up(.*)'])
+// Define routes that are public
+const publicRoutes = ['/sign-in', '/sign-up'];
 
-export default clerkMiddleware((auth, req) => {
+export default authMiddleware({
+  publicRoutes: (req) => {
+    // Check if the request path is a public route
+    return publicRoutes.some(route => req.nextUrl.pathname.startsWith(route));
+  },
+  afterAuth: (auth, req) => {
+    const { userId, orgId } = auth;
 
-  const { userId, orgId } = auth();
-
-  // If user is not logged in and tries to access a non public route, redirect to signIn page
-  if (!userId && !isPublicRoute(req)) {
-    auth().protect();
-  }
-
-  // TEMPORARY redirect to orgs page if trying to go to home
-  if(userId && (req.nextUrl.pathname === '/')){
-
-    let path = '/select-org';
-    
-    if (orgId) {
-      path = `/organization/${orgId}`;
+    // If user is not logged in and tries to access a non-public route, redirect to sign-in page
+    if (!userId && !publicRoutes.some(route => req.nextUrl.pathname.startsWith(route))) {
+      return NextResponse.redirect(new URL('/sign-in', req.url));
     }
 
-    const orgSelection = new URL(path, req.url);
-    return NextResponse.redirect(orgSelection);
-  }
-
-  // If signed in, if user tries to access signIn/Up page, redirect to organization selection page
-  if (userId && (req.nextUrl.pathname === '/sign-in' || req.nextUrl.pathname === '/sign-up')) {
-
-    if(userId && isPublicRoute(req)) {
-      let path = '/select-org';
-
-      if (orgId) {
-        path = `/organization/${orgId}`;
-      }
-
-      const orgSelection = new URL(path, req.url);
-      return NextResponse.redirect(orgSelection);
+    // TEMPORARY: Redirect to orgs page if user is logged in and trying to access home
+    if (userId && req.nextUrl.pathname === '/') {
+      const path = orgId ? `/organization/${orgId}` : '/select-org';
+      return NextResponse.redirect(new URL(path, req.url));
     }
-  }
 
-  // If signed in and an organization was not selected, force user to select or create one
-  if (userId && !orgId && req.nextUrl.pathname !== '/select-org') {
-    
-    const orgSelection = new URL('/select-org', req.url);
-    return NextResponse.redirect(orgSelection);
-  }
+    // Redirect signed-in users away from sign-in and sign-up pages
+    if (userId && publicRoutes.some(route => req.nextUrl.pathname.startsWith(route))) {
+      const path = orgId ? `/organization/${orgId}` : '/select-org';
+      return NextResponse.redirect(new URL(path, req.url));
+    }
 
-})
+    // Force user to select or create an organization if not done yet
+    if (userId && !orgId && req.nextUrl.pathname !== '/select-org') {
+      return NextResponse.redirect(new URL('/select-org', req.url));
+    }
+
+    return NextResponse.next();
+  }
+});
 
 export const config = {
   matcher: [
@@ -56,4 +45,4 @@ export const config = {
     // Always run for API routes
     '/(api|trpc)(.*)',
   ],
-}
+};

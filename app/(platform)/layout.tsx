@@ -5,7 +5,7 @@ const PlatflormLayout = (
     children: React.ReactNode;
 }) => {
   return (
-    <div className='w-full h-screen flex flex-col justify-center items-center'>
+    <div>
       <ClerkProvider>
           {children}
       </ClerkProvider>
