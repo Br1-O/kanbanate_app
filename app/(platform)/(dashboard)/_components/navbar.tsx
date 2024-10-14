@@ -4,6 +4,7 @@ import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { MobileSidebar } from "./mobile-sidebar";
+import { FormPopover } from "@/components/form/form-popover";
 
 const Navbar = () => {
   return (
@@ -17,13 +18,17 @@ const Navbar = () => {
                 <Logo/>
             </div>
 
-            <Button size="sm" variant="primary" className="rounded-sm hidden md:block h-auto py-1.5 px-2">
-                Create
-            </Button>
+            <FormPopover align="start" side="bottom" sideOffset={18}>
+                <Button size="sm" variant="primary" className="rounded-sm hidden md:block h-auto py-1.5 px-2">
+                    Create
+                </Button>
+            </FormPopover>
 
-            <Button size="sm" variant="primary" className="rounded-sm md:hidden">
-                <Plus className="h-4 w-4"/>
-            </Button>
+            <FormPopover>
+                <Button size="sm" variant="primary" className="rounded-sm md:hidden">
+                    <Plus className="h-4 w-4"/>
+                </Button>
+            </FormPopover>
 
             <div className="flex items-center gap-x-2 justify-self-end ml-auto">
                 <OrganizationSwitcher

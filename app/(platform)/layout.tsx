@@ -1,4 +1,5 @@
 import {ClerkProvider} from '@clerk/nextjs';
+import { Toaster } from "sonner";
 
 const PlatflormLayout = (
 {children}: {
@@ -7,6 +8,7 @@ const PlatflormLayout = (
   return (
     <div>
       <ClerkProvider>
+          <Toaster />
           {children}
       </ClerkProvider>
     </div>
