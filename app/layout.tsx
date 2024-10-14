@@ -14,6 +14,7 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
+//dinamically change the window's title
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
