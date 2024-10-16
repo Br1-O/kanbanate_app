@@ -79,8 +79,13 @@ Para este proyecto se usaron las siguientes técnologias, lenguajes y librerias:
 La estructura del proyecto está organizada de la siguiente manera:
 
   <a href="https://github.com/user-attachments/assets/3a6a3191-0f4c-40c7-83c7-f77b69aed2d1">
-    <img src="https://github.com/user-attachments/assets/3a6a3191-0f4c-40c7-83c7-f77b69aed2d1" alt="proyect structure" width="300" height="900" style="border-radius:15px;">
+    <img src="https://github.com/user-attachments/assets/3a6a3191-0f4c-40c7-83c7-f77b69aed2d1" alt="proyect structure" width="350" height="900" style="border-radius:15px;">
   </a>
+
+Al tratarse de una aplicación que usa el sistema de enrutamiento de Next.js las carpetas corresponden con endpoints de la aplicación, y poseen una sintaxis propia:
+() => carpetas de categorización que no afectan al enrutamiento
+[] => rutas dinamicas
+_ => carpetas que quedan ocultas al cliente
 
 <p align="right">(<a href="#readme-top">Volver al inicio</a>)</p>
 
@@ -140,9 +145,9 @@ Si se desea, se puede descargar este proyecto y usarlo de forma local siguiendo 
 
 ### Pre requisitos
 
-No se requiere tener ningún tipo de software especial instalado, bastando con un simple navegador web. 
+Se requiere tener instalado previamente Node.js [Node.js](https://nodejs.org/en/download/package-manager).
 <br>
-Aunque sí se recomienda el uso de algún IDE, programa especializado para facilitar el desarrollo y visualización de código.
+Así mismo se recomienda el uso de algún IDE, programa especializado para facilitar el desarrollo y visualización de código.
 <br>
 
 ### Instalación
@@ -158,30 +163,63 @@ A continuación se muestran los pasos a seguir para instalar este proyecto.
 
 > 2. Clonar el repositorio
    ```sh
-   git clone https://github.com/Br1-O/bakery-store
+   git clone https://github.com/Br1-O/kanbanate_app
    ```
 
- > 3. Navegar al directorio del proyecto
+> 3. Navegar al directorio del proyecto
    ```sh
-  cd bakery-store
+   cd kanbanate_app
    ```
 
-> 4. Abrir el archivo index.html en tu navegador web preferido
+> 4. Instalar las dependencias necesarias
+   ```sh
+   npm install
+   ```
 
-#### Descarga manual desde Github
+> 5. Ejecutar los comandos de Prisma para configurar la base de datos
+   ```sh
+   npx prisma db push
+   npx prisma db generate
+   ```
 
-> 1. Descargar el archivo .zip desde GitHub: [Link de descarga](https://github.com/Br1-O/bakery-store/archive/refs/heads/main.zip)
+> 6. Iniciar el servidor de desarrollo
+   ```sh
+   npm run dev
+   ```
+
+> 7. Abrir tu navegador web y visitar `http://localhost:3000`
+
+#### Descarga manual desde GitHub
+
+> 1. Descargar el archivo .zip desde GitHub: [Link de descarga](https://github.com/Br1-O/kanbanate_app/archive/refs/heads/main.zip)
 
 > 2. Descomprimir el archivo .zip
    ```sh
-   unzip bakery-store-main.zip
+   unzip kanbanate_app-main.zip
    ```
 
- > 3. Navegar al directorio donde fue descomprimido
+> 3. Navegar al directorio donde fue descomprimido
    ```sh
-  cd bakery-store-main
+   cd kanbanate_app-main
    ```
-> 4. Abrir el archivo index.html en tu navegador web preferido
+
+> 4. Instalar las dependencias necesarias
+   ```sh
+   npm install
+   ```
+
+> 5. Ejecutar los comandos de Prisma para configurar la base de datos
+   ```sh
+   npx prisma db push
+   npx prisma db generate
+   ```
+
+> 6. Iniciar el servidor de desarrollo
+   ```sh
+   npm run dev
+   ```
+
+> 7. Abrir tu navegador web y visitar `http://localhost:3000`
 
 <p align="right">(<a href="#readme-top">Volver al inicio</a>)</p>
 
