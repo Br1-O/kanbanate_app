@@ -8,7 +8,7 @@ import {
     ElementRef, 
     KeyboardEventHandler 
 } from "react";
-import { FormTextarea } from "./form-textarea";
+import { FormTextarea } from "../../../../../../components/form/form-textarea";
 import { FormSubmit } from "@/components/form/form-submit";
 import { useAction } from "@/hooks/use-action";
 import { createCard } from "@/actions/create-card";
