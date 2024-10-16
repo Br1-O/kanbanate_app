@@ -31,6 +31,11 @@ export const Header = ({
                 queryKey: ["card", data.id]
             });
 
+            //refresh cache of the card audit log query
+            queryClient.invalidateQueries({
+                queryKey: ["card-logs", data.id]
+            });
+
             toast.success(`Renamed to "${data.title}"`);
 
             //set state

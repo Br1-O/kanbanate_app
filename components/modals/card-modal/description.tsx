@@ -56,9 +56,15 @@ export const Description = ({
     //hook for updateCard
     const { execute, fieldErrors } = useAction(updateCard, {
         onSuccess: (data) => {
-            //refresh the query
+            
+            //refresh cache of the card query
             queryClient.invalidateQueries({
                 queryKey: ["card", data.id]
+            });
+            
+            //refresh cache of the card audit log query
+            queryClient.invalidateQueries({
+                queryKey: ["card-logs", data.id]
             });
 
             toast.success(`Card "${data.title}" updated`);

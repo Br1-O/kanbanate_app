@@ -6,6 +6,8 @@ import { db } from "@/lib/db";
 import { revalidatePath } from "next/cache";
 import { createSafeAction } from "@/lib/create-safe-action";
 import { CreateBoard } from "./schema";
+import { createAuditLog } from "@/lib/create-audit-log";
+import { ACTION, ENTITY_TYPE } from "@prisma/client";
 
 //handler to create board that will check userId and redirect on success
 const handler = async (data:InputType): Promise<ReturnType> => {
@@ -37,6 +39,7 @@ const handler = async (data:InputType): Promise<ReturnType> => {
 
     try {
 
+        //create board into db
         board = await db.board.create({
             data: {
                 title,
@@ -48,6 +51,15 @@ const handler = async (data:InputType): Promise<ReturnType> => {
                 imageLinkHTML
             }
         });
+
+        //create audit log for user activity
+        await createAuditLog({
+            entityId: board.id,
+            entityTitle: board.title,
+            entityType: ENTITY_TYPE.BOARD,
+            action: ACTION.CREATE
+        });
+        
     } catch (error) {
         return {
             error: "Failed to create board."
