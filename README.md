@@ -145,9 +145,9 @@ Si se desea, se puede descargar este proyecto y usarlo de forma local siguiendo 
 
 ### Pre requisitos
 
-Se requiere tener instalado previamente [Node.js](https://nodejs.org/en/download/package-manager).
+Se requiere tener instalado previamente [Node.js](https://nodejs.org/en/download/package-manager) y un servidor, ya sea local o externo, corriendo una base de datos mySQL.
 <br>
-Así mismo se recomienda el uso de algún IDE, programa especializado para facilitar el desarrollo y visualización de código.
+Deberán crearse las variables indicadas en un archivo .env donde los valores sean las keys correspondientes, y la url para la conexión al servidor mySQL.
 <br>
 
 ### Instalación
@@ -171,23 +171,40 @@ A continuación se muestran los pasos a seguir para instalar este proyecto.
    cd kanbanate_app
    ```
 
-> 4. Instalar las dependencias necesarias
+> 4. Crear el archivo `.env` y añadir las siguientes variables:
+   ```plaintext
+   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY = PublicKeyClerk
+   CLERK_SECRET_KEY = SecretKeyClerk
+
+   NEXT_PUBLIC_CLERK_SIGN_IN_URL = /sign-in
+   NEXT_PUBLIC_CLERK_SIGN_UP_URL = /sign-up
+
+   NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL = /
+   NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL = /
+
+   # DB data
+   DATABASE_URL = mysqlDBURL 
+
+   NEXT_PUBLIC_UNSPLASH_ACCESS_KEY = PublicKeyUnSplash
+   ```
+
+> 5. Instalar las dependencias necesarias
    ```sh
    npm install
    ```
 
-> 5. Ejecutar los comandos de Prisma para configurar la base de datos
+> 6. Ejecutar los comandos de Prisma para configurar la base de datos
    ```sh
    npx prisma db push
    npx prisma db generate
    ```
 
-> 6. Iniciar el servidor de desarrollo
+> 7. Iniciar el servidor de desarrollo
    ```sh
    npm run dev
    ```
 
-> 7. Abrir tu navegador web y visitar `http://localhost:3000`
+> 8. Abrir tu navegador web y visitar `http://localhost:3000`
 
 #### Descarga manual desde GitHub
 
@@ -203,23 +220,41 @@ A continuación se muestran los pasos a seguir para instalar este proyecto.
    cd kanbanate_app-main
    ```
 
-> 4. Instalar las dependencias necesarias
+> 4. Crear el archivo `.env` y añadir las siguientes variables:
+   ```plaintext
+   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY = PublicKeyClerk
+   CLERK_SECRET_KEY = SecretKeyClerk
+
+   NEXT_PUBLIC_CLERK_SIGN_IN_URL = /sign-in
+   NEXT_PUBLIC_CLERK_SIGN_UP_URL = /sign-up
+
+   NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL = /
+   NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL = /
+
+   # DB data
+   DATABASE_URL = mysqlDBURL 
+
+   NEXT_PUBLIC_UNSPLASH_ACCESS_KEY = PublicKeyUnSplash
+   ```
+
+> 5. Instalar las dependencias necesarias
    ```sh
    npm install
    ```
 
-> 5. Ejecutar los comandos de Prisma para configurar la base de datos
+> 6. Ejecutar los comandos de Prisma para configurar la base de datos
    ```sh
    npx prisma db push
    npx prisma db generate
    ```
 
-> 6. Iniciar el servidor de desarrollo
+> 7. Iniciar el servidor de desarrollo
    ```sh
    npm run dev
    ```
 
-> 7. Abrir tu navegador web y visitar `http://localhost:3000`
+> 8. Abrir tu navegador web y visitar `http://localhost:3000`
+
 
 <p align="right">(<a href="#readme-top">Volver al inicio</a>)</p>
 
