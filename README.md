@@ -25,7 +25,6 @@
     <li><a href="#about"> Sobre el proyecto</a></li>
     <li><a href="#develop-with">Desarrollado con</a></li>
     <li><a href="#project-structure">Estructura del proyecto </a></li>
-    <li><a href="#design">Diseño </a></li>
     <li><a href="#preview">Vista previa </a></li>
     <li><a href="#getting-started"> Cómo instalarlo</a></li>
   </ol>
@@ -49,23 +48,23 @@ Para este proyecto se usaron las siguientes técnologias, lenguajes y librerias:
 
 #### Desarrollo en general:
 
-* [![JavaScript][JavaScript.com]][JavaScript-url]
-* [![CSS][CSS.com]][CSS-url]
-* [![HTML][HTML.com]][HTML-url]
-* [![TailwindCSS.com][Bootstrap.com]][TailwindCSS-url]
-
-* [![MySQL.com][MySQL-url]
+* React.js
+* Next.js
+* TailwindCSS
+* mySQL
+* Prisma
 
 #### Librerias para funcionalidades:
 
-[![AOS][AOS.com]][AOS-url]
-[![SweetAlert][SweetAlert.com]][SweetAlert-url]
+* Shadcn-ui
+* Sonner
+* Lodash
+* Hello-pangea/dnd
 
-#### Control de versionado y deploy de demo:
+#### Control de versionado:
 
 [![GitHub][GitHub.com]][GitHub-url]
 [![Git][Git.com]][Git-url]
-[![GitHub Pages][GitHubPages.com]][GitHubPages-url]
 
 #### Personalmente se optó para el desarrollo de este proyecto el uso de:
 
@@ -80,7 +79,7 @@ Para este proyecto se usaron las siguientes técnologias, lenguajes y librerias:
 La estructura del proyecto está organizada de la siguiente manera:
 
   <a href="https://github.com/user-attachments/assets/3a6a3191-0f4c-40c7-83c7-f77b69aed2d1">
-    <img src="https://github.com/user-attachments/assets/3a6a3191-0f4c-40c7-83c7-f77b69aed2d1" alt="proyect structure" width="100" height="300" style="border-radius:15px;">
+    <img src="https://github.com/user-attachments/assets/3a6a3191-0f4c-40c7-83c7-f77b69aed2d1" alt="proyect structure" width="300" height="900" style="border-radius:15px;">
   </a>
 
 <p align="right">(<a href="#readme-top">Volver al inicio</a>)</p>
@@ -115,13 +114,22 @@ La estructura del proyecto está organizada de la siguiente manera:
   <img src="https://github.com/user-attachments/assets/88a69d07-decf-40c4-8f46-5baa94c4f0cd" alt="documentation-mainOrg" width="800"/>
 </a>
 
-#### Contacto (path: '/board/[boardId]')
+#### Pagina de tablero de tareas (path: '/board/[boardId]')
 
 <a href="https://github.com/user-attachments/assets/1b406b1a-8e1f-42ed-92a5-b812e271cede" target="_blank">
-  <img src="https://github.com/user-attachments/assets/1b406b1a-8e1f-42ed-92a5-b812e271cede" alt="documentation-contact1" width="800"/>
+  <img src="https://github.com/user-attachments/assets/1b406b1a-8e1f-42ed-92a5-b812e271cede" alt="documentation-board1" width="800"/>
 </a>
 <a href="https://github.com/user-attachments/assets/4aab47ae-ffe4-473e-b4d2-23e3c49a1c6a" target="_blank">
-  <img src="https://github.com/user-attachments/assets/4aab47ae-ffe4-473e-b4d2-23e3c49a1c6a" alt="documentation-contact2" width="800"/>
+  <img src="https://github.com/user-attachments/assets/4aab47ae-ffe4-473e-b4d2-23e3c49a1c6a" alt="documentation-board2" width="800"/>
+</a>
+<a href="https://github.com/user-attachments/assets/0bd1e478-e383-4697-b107-ce2386be7164" target="_blank">
+  <img src="https://github.com/user-attachments/assets/0bd1e478-e383-4697-b107-ce2386be7164" alt="documentation-board2" width="800"/>
+</a>
+
+#### Pagina de actividad de usuarios (path: '/organization/[orgId]/activity')
+
+<a href="https://github.com/user-attachments/assets/694dc84c-5eb5-4798-8ca3-50e69d202958" target="_blank">
+  <img src="https://github.com/user-attachments/assets/694dc84c-5eb5-4798-8ca3-50e69d202958" alt="documentation-contact1" width="800"/>
 </a>
 
 <a id="getting-started"></a>
