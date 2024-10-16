@@ -145,7 +145,7 @@ Si se desea, se puede descargar este proyecto y usarlo de forma local siguiendo 
 
 ### Pre requisitos
 
-Se requiere tener instalado previamente Node.js [Node.js](https://nodejs.org/en/download/package-manager).
+Se requiere tener instalado previamente [Node.js](https://nodejs.org/en/download/package-manager).
 <br>
 Así mismo se recomienda el uso de algún IDE, programa especializado para facilitar el desarrollo y visualización de código.
 <br>
