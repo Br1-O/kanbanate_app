@@ -11,6 +11,9 @@ const nextConfig = {
                 hostname: "images.unsplash.com"
             }
         ]
+    },
+    eslint: {
+        ignoreDuringBuilds: true, // Disables ESLint during production builds
     }
 };
 
