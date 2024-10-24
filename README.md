@@ -14,7 +14,7 @@
   <p align="center">
     Un sistema Kanban para el manejo de espacios de trabajo colaborativos
     <br />
-    <a href="https://"><strong> Ver sitio en producción »</strong></a>
+    <a href="https://kanbanate.vercel.app/"><strong> Ver sitio en producción »</strong></a>
   </p>
 </div>
 
